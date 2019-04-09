@@ -29,13 +29,13 @@ class OrderServiceTests {
 
 
     @Test
-    fun summarize() {
+    fun testSummarize() {
         setupBasicOrders(OrderType.SELL)
         setupBasicOrders(OrderType.BUY)
 
         val summary = repo.summarizeAll()
 
-        // validate the entries are correctly summarized as well as a basic check of ordering.
+        // validate the entries are correctly summarized as well as a basic check for ordering.
         Assert.assertSame(summary.buy.size, 3)
         Assert.assertEquals(summary.buy.elementAt(2), OrderSummaryPageLine(5.5, 306.0))
 
